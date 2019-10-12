@@ -1,0 +1,37 @@
+repositories {
+    jcenter() // includes the MoPub SDK and AVID library
+    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+    maven { url 'https://maven.google.com' } // necessary for Android API 26
+}
+
+dependencies {
+    implementation('com.mopub:mopub-sdk:5.9.1@aar') {
+       transitive = true
+        exclude module: 'moat-mobile-app-kit' // To exclude Moat
+    }
+
+    // For banners
+    implementation('com.mopub:mopub-sdk-banner:5.9.1@aar') {
+        transitive = true
+    }
+
+    // For interstitials
+    implementation('com.mopub:mopub-sdk-interstitial:5.9.1@aar') {
+        transitive = true
+    }
+
+    // For rewarded videos. This will automatically also include interstitials
+    implementation('com.mopub:mopub-sdk-rewardedvideo:5.9.1@aar') {
+        transitive = true
+    }
+
+    // For native static (images).
+    implementation('com.mopub:mopub-sdk-native-static:5.9.1@aar') {
+        transitive = true
+    }
+
+    // For native video. This will automatically also include native static
+    implementation('com.mopub:mopub-sdk-native-video:5.9.1@aar') {
+        transitive = true
+    }
+}
